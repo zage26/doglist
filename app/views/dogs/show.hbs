@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Doglist Specific</title>
+  </head>
+  <body>
+    <h1>Specific Info</h1>
+    <h3>{{dog.name}}</h3>
+    <p>Age: {{dog.age}}</p>
+
+    <form action="/dogs/{{dog.id}}/edit" method="get">
+      <input type="submit" name="update" value="Update">
+    </form>
+
+    <form action="/dogs/{{dog.id}}?_method=DELETE" method="post">
+      <input type="submit" name="delete" value="Delete">
+    </form>
+
+  </body>
+</html>

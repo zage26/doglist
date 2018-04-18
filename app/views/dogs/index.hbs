@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Doglist Homepage</title>
+    <link rel="stylesheet" href="/css/master.css">
+  </head>
+  <body>
+    <h1>Doglist</h1>
+    <a href="/dogs/new">Add New Dog</a>
+    <br>
+    <br>
+    <section id="container">
+      {{#each dogs}}
+        <a href="/dogs/{{id}}">
+          <section class="dog-container">
+            <h1>{{name}}</h1>
+            <p>Age: {{age}}</p>
+          </section>
+        </a>
+      {{/each}}
+    </section>
+  </body>
+</html>

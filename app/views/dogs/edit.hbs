@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Doglist Update</title>
+  </head>
+  <body>
+    <h1>Update Dog</h1>
+    <!-- Query String goes after the whole route -->
+    <form action="/dogs/{{dog.id}}/edit?_method=PATCH" method="post">
+      <label for="dogName">Name: </label>
+      <!-- name is what key will be -->
+      <input id="dogName" type="text" name="name" value={{dog.name}}>
+      <label for="dogAge">Age (in years): </label>
+      <input id="dogAge" type="number" name="age" value={{dog.age}}>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>

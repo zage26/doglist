@@ -28,10 +28,9 @@ mongoose.connect(database)
 
 //middleware
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+app.use(express.static(path.join(__dirname, "../public")));
 
 app.get("/", (req, res) => {
   res.redirect("/dogs");
@@ -40,7 +39,7 @@ app.get("/", (req, res) => {
 app.get("/dogs", (req, res) => {
   Dog.find()
      .then(dogs => {
-       res.send(dogs);
+       res.render("./dogs/index.hbs", { dogs });
      })
      .catch(e => {
        res.status(404).send(e);
@@ -72,8 +71,53 @@ app.post("/dogs", (req, res) => {
   })
 })
 
+app.get("/dogs/:id", (req, res) => {
+  const id = req.params.id;
+  Dog.findById(id)
+     .then(dog => {
+       res.render("./dogs/show.hbs", { dog });
+     })
+     .catch(e => {
+       res.status(404).send(e);
+     })
+})
+
 app.delete("/dogs/:id", (req, res) => {
   console.log("hit delete route");
+  const id = req.params.id;
+  Dog.findByIdAndRemove(id)
+     .then(dog => {
+       console.log("Successful delete");
+       res.redirect("/dogs");
+     })
+     .catch(e => {
+       res.status(500).send(e);
+     })
+})
+
+app.get("/dogs/:id/edit", (req, res) => {
+  const id = req.params.id;
+  Dog.findById(id)
+     .then(dog => {
+       res.render("./dogs/edit.hbs", {
+         dog: dog
+       });
+     })
+     .catch(e => {
+       res.status(500).send(e)
+     })
+})
+
+app.patch("/dogs/:id/edit", (req, res) => {
+  console.log("hit update route");
+  const id = req.params.id;
+  Dog.findByIdAndUpdate(id, req.body, {new: true})
+     .then(dog => {
+       res.redirect("/dogs");
+     })
+     .catch(e => {
+       res.status(500).send(e);
+     })
 })
 
 app.listen(port, () => {

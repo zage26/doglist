@@ -1,0 +1,15 @@
+#container {
+  /* border: solid; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.dog-container {
+  border: solid;
+  margin: 20px;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+}
