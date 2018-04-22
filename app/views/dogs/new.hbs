@@ -4,18 +4,35 @@
     <meta charset="utf-8">
     <!-- relation to public folder -->
     <link rel="stylesheet" href="/css/master.css">
-    <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans+Condensed:300|Sacramento" rel="stylesheet">
+    <title>New Doglist</title>
+    <style media="screen">
+    .parallax {
+        /* The image used */
+        background-image: url('https://cdn.unifiedcommerce.com/content/product/large/871241009370.jpg') ;
+
+        /* Set a specific height */
+        min-height: 500px;
+
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    </style>
   </head>
   <body>
-    <h1>Create a New Dog</h1>
-    <!-- <form action="/dogs/123?_method=DELETE" method="post"> -->
-    <form action="/dogs" method="post">
-      <label for="dogName">Name: </label>
-      <!-- name is what key will be -->
-      <input id="dogName" type="text" name="name">
-      <label for="dogAge">Age (in years): </label>
-      <input id="dogAge" type="number" name="age">
-      <input type="submit" value="Submit">
-    </form>
+    <section>
+      <div class="form-title">
+        <p>Add New Dog</p>
+      </div>
+      <div class="parallax"></div>
+      <div class="form-content">
+        <form action="/dogs" method="post">
+          {{>form}}
+        </form>
+      </div>
+    </section>
   </body>
 </html>

@@ -1,3 +1,6 @@
+//Link to heroku site: https://zagedoglist.herokuapp.com/
+//Link to github site: https://github.com/zage26/doglist
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -59,11 +62,13 @@ app.post("/dogs", (req, res) => {
   }
   const dog = new Dog({
     name: req.body.name,
-    age: req.body.age
+    age: req.body.age,
+    breed: req.body.breed,
+    dogDescription: req.body.dogDescription,
+    image: req.body.image
   })
   dog.save()
   .then(dog => {
-    // res.send(dog);
     res.redirect("/dogs");
   })
   .catch(e => {

@@ -4,18 +4,25 @@
     <meta charset="utf-8">
     <title>Doglist Homepage</title>
     <link rel="stylesheet" href="/css/master.css">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans+Condensed:300|Sacramento" rel="stylesheet">
   </head>
   <body>
-    <h1>Doglist</h1>
-    <a href="/dogs/new">Add New Dog</a>
+    <div id="doglist-title">
+      <p id="doglist">DOGLIST</p>
+      <a href="/dogs/new" id="add-new-dog">Add New Dog</a>
+    </div>
     <br>
     <br>
     <section id="container">
       {{#each dogs}}
         <a href="/dogs/{{id}}">
           <section class="dog-container">
-            <h1>{{name}}</h1>
-            <p>Age: {{age}}</p>
+            <div id="dog-name">
+              <h1>{{name}}</h1>
+            </div>
+            <div id="dog-image">
+              <img src={{image}}>
+            </div>
           </section>
         </a>
       {{/each}}

@@ -14,6 +14,24 @@ const dogSchema = mongoose.Schema({
     required: true,
     minLength: 1,
     trim: true
+  },
+  breed: {
+    type: String,
+    required: true,
+    minLength: 1,
+    trim: true
+  },
+  dogDescription: {
+    type: String,
+    required: true,
+    minLength: 1,
+    trim: true
+  },
+  image: {
+    type: String,
+    required: true,
+    minLength: 1,
+    trim: true
   }
 
 });

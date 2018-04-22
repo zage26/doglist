@@ -1,15 +1,95 @@
 #container {
-  /* border: solid; */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  /* justify-content: center; */
+}
+
+body {
+  margin: 0%;
+  padding: 0%;
+}
+
+#dog-title, .form-title {
+  text-align: center;
+	font-size: 50px;
+	padding: 0px;
+	font-family: 'Abril Fatface', cursive;
+}
+
+#dog-content {
+  display: grid;
+  grid-template-rows: 75% 25%;
+  font-size: 17px;
+}
+
+#dog-info, .form-content {
+  text-align: center;
+  font-family: 'Open Sans Condensed', sans-serif;
+  margin: 20px 0% 0% 0%;
+}
+
+.form-content {
+  margin: 20px 0% 20px 0%;
+  font-size: 17px;
+}
+
+#dog-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0% 0% 20px 0%;
+}
+
+#doglist-title {
+  display: grid;
+  grid-template-columns: 75% 25%;
+  margin: 5px 20px 0px 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  height: 200px;
+  width: 100%;
+}
+
+#doglist {
+  font-size: 55px;
+  margin: 10px 0px 10px 0px;
+  font-family: 'Abril Fatface', cursive;
+}
+
+#add-new-dog {
+  margin: 10px 0px 10px 0px;
+  font-family: 'Sacramento', cursive;
+  /* border: solid; */
+  padding: 10px;
+  color: grey;
+  display: flex;
+  font-size: 25px;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+}
+
+#dog-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .dog-container {
-  border: solid;
+  border: solid grey 1px;
+  box-shadow: 12px 12px 2px 1px rgba(192, 192, 192, .3);
   margin: 20px;
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   text-align: center;
+  color: black;
+  display: grid;
+  grid-template-rows: 25% 75%;
 }
