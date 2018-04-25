@@ -25,6 +25,7 @@ const dogSchema = mongoose.Schema({
     type: String,
     required: true,
     minLength: 1,
+    maxLength: 30,
     trim: true
   },
   image: {
@@ -33,7 +34,6 @@ const dogSchema = mongoose.Schema({
     minLength: 1,
     trim: true
   }
-
 });
 
 const Dog = mongoose.model("Dog", dogSchema);

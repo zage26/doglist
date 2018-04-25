@@ -9,7 +9,10 @@ const path = require("path");
 const {Dog} = require("./models/dog.js");
 const _ = require("lodash");
 const methodOverride = require("method-override")
+//uploading images
+const multer = require("multer");
 
+const upload = multer({ dest: "./public/images"})
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -31,7 +34,7 @@ mongoose.connect(database)
 
 //middleware
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "../public")));
 
@@ -54,7 +57,7 @@ app.get("/dogs/new", (req, res) => {
   res.render("./dogs/new.hbs");
 })
 
-app.post("/dogs", (req, res) => {
+app.post("/dogs", upload.single("image"), (req, res) => {
   if(!req.body.name || !req.body.age) {
     //can put an object here and then pull of property and
     //handle the error
@@ -65,7 +68,7 @@ app.post("/dogs", (req, res) => {
     age: req.body.age,
     breed: req.body.breed,
     dogDescription: req.body.dogDescription,
-    image: req.body.image
+    image: req.file.filename
   })
   dog.save()
   .then(dog => {
